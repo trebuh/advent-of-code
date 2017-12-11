@@ -1,0 +1,16 @@
+
+#Python
+__pycache__/
+env/
+dist/
+build/
+eggs/
+*.egg-info/
+.installed.cfg
+
+## Java
+out/
+
+## IDE files
+.idea
+*.iml
