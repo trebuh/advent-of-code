@@ -1,27 +1,28 @@
 #!/usr/bin/env luajit
 
-local valid_pass_count = 0;
-
-for line in io.lines("input.txt") do
-
+function line_is_valid_step1(line)
     local matches = {}
     local matches_count = 0
     local size = 0
     
     for word in string.gmatch(line, "%S+") do
-        
         size = size + 1
         if not matches[word] then
             matches[word] = true
             matches_count = matches_count + 1
         end
-
     end
+    return size == matches_count
+end
+
+local valid_pass_count_step1 = 0;
+
+for line in io.lines("input.txt") do
     
-    if size == matches_count then
-        valid_pass_count = valid_pass_count +1
+    if line_is_valid_step1(line) then
+        valid_pass_count_step1 = valid_pass_count_step1 +1
     end
 
 end
 
-print(valid_pass_count)
+print(valid_pass_count_step1)
